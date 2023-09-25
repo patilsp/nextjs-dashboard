@@ -13,14 +13,14 @@ import {
 } from "@/components/site-header"
 import { buttonVariants } from "@/registry/new-york/ui/button"
 import { Separator } from "@/registry/new-york/ui/separator"
-import Dashboard from "@/app/dashboard/page"
+import Authentication from "@/app/authentication/page"
 
 export default function IndexPage() {
   return (
     <div className="container relative">
       <section className="md:block">
       <div className="overflow-hidden rounded-lg border bg-background shadow mt-4">
-          <Dashboard />
+          <Authentication />
         </div>
       </section>
     </div>
