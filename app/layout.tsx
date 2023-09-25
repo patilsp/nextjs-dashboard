@@ -1,7 +1,18 @@
-import './globals.css'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from "@/components/theme-provider"
+import "./globals.css"
+
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+// import { Analytics } from "@/components/analytics"
+import { ThemeProvider } from "@/components/providers"
+import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
+
+import { ThemeSwitcher } from "@/components/theme-switcher"
+import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
+import { Toaster as NewYorkToaster } from "@/registry/new-york/ui/toaster"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,17 +27,31 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <html lang="en" suppressHydrationWarning>
+    <head />
+    <body
+      className={cn(
+        "min-h-screen bg-background font-sans antialiased",inter
+      )}
+    >
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div className="relative flex min-h-screen flex-col">
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
+        
+      </ThemeProvider>
+      <ThemeSwitcher />
+
+      <NewYorkToaster />
+      <DefaultToaster />
+    </body>
+  </html>
   )
 }
