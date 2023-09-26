@@ -5,7 +5,6 @@ import "./globals.css"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-// import { Analytics } from "@/components/analytics"
 import { ThemeProvider } from "@/components/providers"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"

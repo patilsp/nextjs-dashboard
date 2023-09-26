@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Dashboard",
+  name: "Music Platform",
   url: "#",
   ogImage: "https://ui.shadcn.com/og.jpg",
   description:
